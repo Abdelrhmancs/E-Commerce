@@ -7,7 +7,9 @@ interface ProductContextType {
     fetch: boolean;
     setFetch: React.Dispatch<React.SetStateAction<boolean>>;
     details: Product;
-    setDetails: React.Dispatch<React.SetStateAction<Product>>;
+    setDetails: React.Dispatch<React.SetStateAction<Product>>; 
+    dataCart:Product[];
+    setDataCart:React.Dispatch<React.SetStateAction<Product[]>>;
   }
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -17,8 +19,9 @@ export const ProductProvider = ({children} : {children: React.ReactNode}) => {
     const [category , setCategory] = useState("");
     const [fetch , setFetch] = useState(false);
     const [details , setDetails] = useState<Product>({} as Product);
+    const [dataCart , setDataCart] = useState<Product[]>([]);
     return(
-        <ProductContext.Provider value={{category , setCategory , fetch , setFetch ,details , setDetails}}>
+        <ProductContext.Provider value={{category , setCategory , fetch , setFetch ,details , setDetails , dataCart , setDataCart}}>
             {children}
         </ProductContext.Provider>
     )
